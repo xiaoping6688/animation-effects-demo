@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<style>
+  .puzzles {
+    width: 940px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .p-col {
+    display: flex;
+    flex-direction: column;
+    height: 896px;
+  }
+  .p-col:not(:first-child) {
+    margin-left: -46px;
+    width: calc(264px - 40px);
+  }
+  .p-col.up{
+    justify-content: flex-end;
+  }
+  .p-col.down{
+    justify-content: flex-start;
+  }
+  .p-col.up .item:not(:last-child) {
+    margin-bottom: -46px;
+  }
+  .p-col.down .item:not(:first-child) {
+    margin-top: -46px;
+  }
+  .puzzles .item {
+    position: relative;
+  }
+  .puzzles .item img {
+    width: 100%;
+    height: 100%;
+  }
+  .puzzles .item span {
+    width: 100px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    font-size: 25px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .puzzles .item span.no-bg {
+    background-color: initial;
+  }
+  .puz-0-0-0 span, .puz-0-0-1 span, .puz-1-0-0 span, .puz-1-0-1 span {
+    top: 40px !important;
+  }
+  .puz-0-1-0 span, .puz-0-1-1 span, .puz-1-1-0 span, .puz-1-1-1 span {
+    top: -40px !important;
+  }
+  .puz-1-2-0 span, .puz-1-2-1 span {
+    left: -40px !important;
+  }
+  .puz-2-0-0, .puz-2-0-1, .puz-2-1-0, .puz-2-1-1, .puz-3-1-0, .puz-3-1-1 {
+    left: -40px !important;
+  }
+
+  .puz-0-0-0 {
+    width: 184px;
+    height: 224px;
+    background-size: cover;
+    background-image: url(img/p-0-0.png);
+  }
+  .puz-0-0-1 {
+    width: 184px;
+    height: 224px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-0-0.png);
+  }
+  .puz-0-1-0 {
+    width: 184px;
+    height: 224px;
+    background-size: cover;
+    background-image: url(img/p-0-1.png);
+  }
+  .puz-0-1-1 {
+    width: 184px;
+    height: 224px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-0-1.png);
+  }
+  .puz-1-0-0 {
+    width: 184px;
+    height: 224px;
+    background-size: cover;
+    background-image: url(img/p-1-0.png);
+  }
+  .puz-1-0-1 {
+    width: 184px;
+    height: 224px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-1-0.png);
+  }
+  .puz-1-1-0 {
+    width: 184px;
+    height: 224px;
+    background-size: cover;
+    background-image: url(img/p-1-1.png);
+  }
+  .puz-1-1-1 {
+    width: 184px;
+    height: 224px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-1-1.png);
+  }
+  .puz-1-2-0 {
+    width: 224px;
+    height: 184px;
+    background-size: cover;
+    background-image: url(img/p-1-2.png);
+  }
+  .puz-1-2-1 {
+    width: 224px;
+    height: 184px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-1-2.png);
+  }
+  .puz-2-0-0 {
+    width: 264px;
+    height: 184px;
+    background-size: cover;
+    background-image: url(img/p-2-0.png);
+  }
+  .puz-2-0-1 {
+    width: 264px;
+    height: 184px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-2-0.png);
+  }
+  .puz-2-1-0 {
+    width: 264px;
+    height: 184px;
+    background-size: cover;
+    background-image: url(img/p-2-1.png);
+  }
+  .puz-2-1-1 {
+    width: 264px;
+    height: 184px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-2-1.png);
+  }
+  .puz-2-2-0 {
+    width: 184px;
+    height: 264px;
+    background-size: cover;
+    background-image: url(img/p-2-2.png);
+  }
+  .puz-2-2-1 {
+    width: 184px;
+    height: 264px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-2-2.png);
+  }
+  .puz-3-0-0 {
+    width: 184px;
+    height: 264px;
+    background-size: cover;
+    background-image: url(img/p-3-0.png);
+  }
+  .puz-3-0-1 {
+    width: 184px;
+    height: 264px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-3-0.png);
+  }
+  .puz-3-1-0 {
+    width: 264px;
+    height: 184px;
+    background-size: cover;
+    background-image: url(img/p-3-1.png);
+  }
+  .puz-3-1-1 {
+    width: 264px;
+    height: 184px;
+    -webkit-mask-size: cover;
+    -webkit-mask-image: url(img/p-3-1.png);
+  }
+
+</style>
+</head>
+
+<body>
+ <div class="puzzles">
+  <div class="p-col up">
+    <div class="item puz-0-1-0"><span class="no-bg">刘德华1</span></div>
+    <div class="item puz-1-2-0"><span class="no-bg">刘德华2</span></div>
+    <div class="item puz-2-2-0"><span class="no-bg">刘德华3</span></div>
+    <div class="item puz-1-2-1"><img src="./headicon.jpg"><span>谢霆锋</span></div>
+    <div class="item puz-0-0-0"><span class="no-bg">刘德华</span></div>
+  </div>
+  <div class="p-col down">
+    <div class="item puz-2-1-0"><span class="no-bg">刘德华4</span></div>
+    <div class="item puz-3-0-0"><span class="no-bg">刘德华5</span></div>
+    <div class="item puz-3-1-0"><span class="no-bg">刘德华6</span></div>
+    <div class="item puz-3-0-0"><span class="no-bg">谢霆锋7</span></div>
+    <div class="item puz-2-0-0"><span class="no-bg">刘德华8</span></div>
+  </div>
+  <div class="p-col up">
+    <div class="item puz-1-1-0"><span class="no-bg">刘德华8</span></div>
+    <div class="item puz-3-1-0"><span class="no-bg">刘德华85</span></div>
+    <div class="item puz-3-0-0"><span class="no-bg">刘德华86</span></div>
+    <div class="item puz-3-1-0"><span class="no-bg">谢霆锋87</span></div>
+    <div class="item puz-1-0-0"><span class="no-bg">刘德华88</span></div>
+  </div>
+  <div class="p-col down">
+    <div class="item puz-2-1-0"><span class="no-bg">刘德华4</span></div>
+    <div class="item puz-3-0-0"><span class="no-bg">刘德华5</span></div>
+    <div class="item puz-3-1-0"><span class="no-bg">刘德华6</span></div>
+    <div class="item puz-3-0-0"><span class="no-bg">谢霆锋7</span></div>
+    <div class="item puz-2-0-0"><span class="no-bg">刘德华8</span></div>
+  </div>
+  <div class="p-col up">
+    <div class="item puz-1-1-0"><span class="no-bg">刘德华8</span></div>
+    <div class="item puz-3-1-0"><span class="no-bg">刘德华85</span></div>
+    <div class="item puz-3-0-0"><span class="no-bg">刘德华86</span></div>
+    <div class="item puz-3-1-0"><span class="no-bg">谢霆锋87</span></div>
+    <div class="item puz-1-0-0"><span class="no-bg">刘德华88</span></div>
+  </div>
+ </div>
+
+ <script>
+  // return;
+  $('.puzzles').html('')
+
+  var data = [
+    { name: 'User1', avatar:'./headicon.jpg' },
+    { name: 'User2', avatar:'' },
+    { name: 'User3', avatar:'./headicon.jpg' },
+    { name: 'User4', avatar:'' },
+    { name: 'User5', avatar:'' },
+    { name: 'User6', avatar:'' },
+    { name: 'User7', avatar:'./headicon.jpg' },
+    { name: 'User8', avatar:'' },
+    { name: 'User9', avatar:'' },
+    { name: 'User10', avatar:'./headicon.jpg' },
+    { name: 'User11', avatar:'./headicon.jpg' },
+    { name: 'User12', avatar:'./headicon.jpg' },
+    { name: 'User13', avatar:'./headicon.jpg' },
+    { name: 'User14', avatar:'./headicon.jpg' },
+    { name: 'User15', avatar:'./headicon.jpg' },
+    { name: 'User16', avatar:'./headicon.jpg' },
+    { name: 'User17', avatar:'' },
+    { name: 'User18', avatar:'' },
+    { name: 'User19', avatar:'' },
+    { name: 'User20', avatar:'' },
+    { name: 'User21', avatar:'' },
+    { name: 'User22', avatar:'' },
+    { name: 'User23', avatar:'' },
+    { name: 'User24', avatar:'' },
+    { name: 'User25', avatar:'' },
+    { name: 'User26', avatar:'' },
+    { name: 'User27', avatar:'' },
+    { name: 'User28', avatar:'' },
+    { name: 'User29', avatar:'' },
+    { name: 'User30', avatar:'' },
+    { name: 'User31', avatar:'' },
+    { name: 'User32', avatar:'' },
+    { name: 'User33', avatar:'' },
+    { name: 'User34', avatar:'' },
+    { name: 'User35', avatar:'' },
+    { name: 'User36', avatar:'' },
+    { name: 'User37', avatar:'' },
+    { name: 'User38', avatar:'' },
+    { name: 'User39', avatar:'' },
+    { name: 'User40', avatar:'' },
+    { name: 'User41', avatar:'' },
+    { name: 'User42', avatar:'' },
+    { name: 'User43', avatar:'' },
+    { name: 'User44', avatar:'' },
+    { name: 'User45', avatar:'' },
+    { name: 'User46', avatar:'' },
+    { name: 'User47', avatar:'' },
+    { name: 'User48', avatar:'./headicon.jpg' }
+  ]
+
+  var currentIndex = 0
+
+  setInterval(checkQueue, 1000)
+
+  function checkQueue () {
+    var item  = data.shift()
+    if (item) {
+      var col = Math.floor(currentIndex / 5)
+      var index = currentIndex % 5
+
+      // 创建新列
+      if (index == 0) {
+        if (col > 4) {
+          $('.puzzles').animate({ marginLeft: '-184px' }, 'fast', 'linear', function() {
+            $('.puzzles .p-col:first-child').remove()
+            $('.puzzles .p-col:first-child').css('width', '224px')
+            $('.puzzles').css('margin-left', '0')
+          })
+        }
+
+        if (col % 2 == 0) {
+          $('.puzzles').append('<div class="p-col up"></div>')
+        } else {
+          $('.puzzles').append('<div class="p-col down"></div>')
+        }
+      }
+
+      // 添加元素
+      var lastCol = $('.puzzles .p-col:last-child')
+      if (lastCol.hasClass('up')) {
+        lastCol.prepend(getElementHtml(col, index, item))
+      } else {
+        lastCol.append(getElementHtml(col, index, item))
+      }
+
+      currentIndex++
+    }
+  }
+
+  function getElementHtml (col, index, data) {
+    var flag = ''
+    if (col == 0) { // 第一列:特殊拼图 自下向上
+      switch (index) {
+        case 0:
+          flag = '0-0'
+          break
+        case 1:
+          flag = '1-2'
+          break
+        case 2:
+          flag = '2-2'
+          break
+        case 3:
+          flag = '1-2'
+          break
+        case 4:
+          flag = '0-1'
+          break
+      }
+    } else { // 其他列
+      if (col % 2 != 0) { // 奇数列:自上向下
+        switch (index) {
+          case 0:
+            flag = '2-1'
+            break
+          case 1:
+            flag = '3-0'
+            break
+          case 2:
+            flag = '3-1'
+            break
+          case 3:
+            flag = '3-0'
+            break
+          case 4:
+            flag = '2-0'
+            break
+        }
+      } else { // 偶数列:自下向上
+        switch (index) {
+          case 0:
+            flag = '1-0'
+            break
+          case 1:
+            flag = '3-1'
+            break
+          case 2:
+            flag = '3-0'
+            break
+          case 3:
+            flag = '3-1'
+            break
+          case 4:
+            flag = '1-1'
+            break
+        }
+      }
+    }
+
+    if (data.avatar) {
+      return '<div class="item puz-' + flag + '-1"><img src="' + data.avatar + '"><span>' + data.name + '</span></div>'
+    } else {
+      return '<div class="item puz-' + flag + '-0"><span class="no-bg">' + data.name + '</span></div>'
+    }
+  }
+ </script>
+</body>
+</html>
