@@ -1,5 +1,5 @@
 ;(function(window){
-  var interval = 1000
+  var interval = 2000
   var currentIndex
   var queue
   var containerSelector
@@ -23,35 +23,37 @@
   function checkQueue () {
     var item  = queue.shift()
     if (item) {
-      var col = Math.floor(currentIndex / 5)
-      var index = currentIndex % 5
+      showAlert(item, 1000, function(){
+        var col = Math.floor(currentIndex / 5)
+        var index = currentIndex % 5
 
-      // 创建新列
-      if (index == 0) {
-        if (col > 4) {
-          $(containerSelector).animate({ marginLeft: '-184px' }, 'fast', 'linear', function() {
-            $(containerSelector + ' .p-col:first-child').remove()
-            $(containerSelector + ' .p-col:first-child').css('width', '224px')
-            $(containerSelector).css('margin-left', '0')
-          })
+        // 创建新列
+        if (index == 0) {
+          if (col > 4) {
+            $(containerSelector).animate({ marginLeft: '-184px' }, 'fast', 'linear', function() {
+              $(containerSelector + ' .p-col:first-child').remove()
+              $(containerSelector + ' .p-col:first-child').css('width', '224px')
+              $(containerSelector).css('margin-left', '0')
+            })
+          }
+
+          if (col % 2 == 0) {
+            $(containerSelector).append('<div class="p-col up"></div>')
+          } else {
+            $(containerSelector).append('<div class="p-col down"></div>')
+          }
         }
 
-        if (col % 2 == 0) {
-          $(containerSelector).append('<div class="p-col up"></div>')
+        // 添加元素
+        var lastCol = $(containerSelector + ' .p-col:last-child')
+        if (lastCol.hasClass('up')) {
+          lastCol.prepend(getElementHtml(col, index, item))
         } else {
-          $(containerSelector).append('<div class="p-col down"></div>')
+          lastCol.append(getElementHtml(col, index, item))
         }
-      }
 
-      // 添加元素
-      var lastCol = $(containerSelector + ' .p-col:last-child')
-      if (lastCol.hasClass('up')) {
-        lastCol.prepend(getElementHtml(col, index, item))
-      } else {
-        lastCol.append(getElementHtml(col, index, item))
-      }
-
-      currentIndex++
+        currentIndex++
+      })
     }
   }
 
@@ -120,5 +122,30 @@
     } else {
       return '<div class="p-item puz-' + flag + '-0"><span class="no-bg">' + data.name + '</span></div>'
     }
+  }
+
+  function showAlert (data, duration, callback) {
+    var col = Math.floor(currentIndex / 5)
+    var index = currentIndex % 5
+    var pic = getElementHtml(col, index, data)
+    $('body').append(getAlertHtml(pic, data.name))
+
+    setTimeout(function(){
+      $('.puz-alert').remove()
+      callback()
+    }, duration)
+  }
+
+  function getAlertHtml (pic, name) {
+    return '<div class="puz-alert">' +
+              '<div class="pic">' +
+                  pic +
+              '</div>' +
+              '<div class="tip">' +
+                  '<p class="name">' + name + '</p>' +
+                  '<p>签到成功！</p>' +
+              '</div>' +
+              '<div class="logo">用科技推进教育进步</div>' +
+           '</div>'
   }
 })(window);
