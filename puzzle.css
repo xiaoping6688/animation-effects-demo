@@ -1,0 +1,188 @@
+.puzzles {
+  width: 940px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.p-col {
+  display: flex;
+  flex-direction: column;
+  height: 896px;
+}
+.p-col:not(:first-child) {
+  margin-left: -46px;
+  width: calc(264px - 40px);
+}
+.p-col.up{
+  justify-content: flex-end;
+}
+.p-col.down{
+  justify-content: flex-start;
+}
+.p-col.up .p-item:not(:last-child) {
+  margin-bottom: -46px;
+}
+.p-col.down .p-item:not(:first-child) {
+  margin-top: -46px;
+}
+.p-item {
+  position: relative;
+}
+.p-item img {
+  width: 100%;
+  height: 100%;
+}
+.p-item span {
+  width: 100px;
+  height: 44px;
+  line-height: 44px;
+  color: #fff;
+  font-size: 25px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.p-item span.no-bg {
+  background-color: initial;
+}
+.puz-0-0-0 span, .puz-0-0-1 span, .puz-1-0-0 span, .puz-1-0-1 span {
+  top: 40px !important;
+}
+.puz-0-1-0 span, .puz-0-1-1 span, .puz-1-1-0 span, .puz-1-1-1 span {
+  top: -40px !important;
+}
+.puz-1-2-0 span, .puz-1-2-1 span {
+  left: -40px !important;
+}
+.puz-2-0-0, .puz-2-0-1, .puz-2-1-0, .puz-2-1-1, .puz-3-1-0, .puz-3-1-1 {
+  left: -40px !important;
+}
+
+.puz-0-0-0 {
+  width: 184px;
+  height: 224px;
+  background-size: cover;
+  background-image: url(img/p-0-0.png);
+}
+.puz-0-0-1 {
+  width: 184px;
+  height: 224px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-0-0.png);
+}
+.puz-0-1-0 {
+  width: 184px;
+  height: 224px;
+  background-size: cover;
+  background-image: url(img/p-0-1.png);
+}
+.puz-0-1-1 {
+  width: 184px;
+  height: 224px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-0-1.png);
+}
+.puz-1-0-0 {
+  width: 184px;
+  height: 224px;
+  background-size: cover;
+  background-image: url(img/p-1-0.png);
+}
+.puz-1-0-1 {
+  width: 184px;
+  height: 224px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-1-0.png);
+}
+.puz-1-1-0 {
+  width: 184px;
+  height: 224px;
+  background-size: cover;
+  background-image: url(img/p-1-1.png);
+}
+.puz-1-1-1 {
+  width: 184px;
+  height: 224px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-1-1.png);
+}
+.puz-1-2-0 {
+  width: 224px;
+  height: 184px;
+  background-size: cover;
+  background-image: url(img/p-1-2.png);
+}
+.puz-1-2-1 {
+  width: 224px;
+  height: 184px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-1-2.png);
+}
+.puz-2-0-0 {
+  width: 264px;
+  height: 184px;
+  background-size: cover;
+  background-image: url(img/p-2-0.png);
+}
+.puz-2-0-1 {
+  width: 264px;
+  height: 184px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-2-0.png);
+}
+.puz-2-1-0 {
+  width: 264px;
+  height: 184px;
+  background-size: cover;
+  background-image: url(img/p-2-1.png);
+}
+.puz-2-1-1 {
+  width: 264px;
+  height: 184px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-2-1.png);
+}
+.puz-2-2-0 {
+  width: 184px;
+  height: 264px;
+  background-size: cover;
+  background-image: url(img/p-2-2.png);
+}
+.puz-2-2-1 {
+  width: 184px;
+  height: 264px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-2-2.png);
+}
+.puz-3-0-0 {
+  width: 184px;
+  height: 264px;
+  background-size: cover;
+  background-image: url(img/p-3-0.png);
+}
+.puz-3-0-1 {
+  width: 184px;
+  height: 264px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-3-0.png);
+}
+.puz-3-1-0 {
+  width: 264px;
+  height: 184px;
+  background-size: cover;
+  background-image: url(img/p-3-1.png);
+}
+.puz-3-1-1 {
+  width: 264px;
+  height: 184px;
+  -webkit-mask-size: cover;
+  -webkit-mask-image: url(img/p-3-1.png);
+}
