@@ -128,7 +128,7 @@
     var col = Math.floor(currentIndex / 5)
     var index = currentIndex % 5
     var pic = getElementHtml(col, index, data)
-    $('body').append(getAlertHtml(pic, data.name))
+    $(containerSelector).append(getAlertHtml(pic, data.name))
 
     setTimeout(function(){
       $('.puz-alert').remove()

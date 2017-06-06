@@ -1,9 +1,12 @@
 .puzzles {
   width: 940px;
+  min-height: 896px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  position: relative;
+  zoom: 0.5;
 }
 .p-col {
   display: flex;
@@ -203,7 +206,7 @@
 
 .puz-alert {
   display: flex;
-  position: fixed;
+  position: absolute;
   align-items: center;
   width: 635px;
   height: 310px;
