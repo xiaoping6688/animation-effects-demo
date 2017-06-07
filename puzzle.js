@@ -1,5 +1,5 @@
 ;(function(window){
-  var interval = 2000
+  var interval = 2500
   var currentIndex
   var queue
   var containerSelector
@@ -128,11 +128,14 @@
     var col = Math.floor(currentIndex / 5)
     var index = currentIndex % 5
     var pic = getElementHtml(col, index, data)
-    $(containerSelector).append(getAlertHtml(pic, data.name))
+    var alert = $(getAlertHtml(pic, data.name))
+    alert.appendTo(containerSelector)
 
     setTimeout(function(){
-      $('.puz-alert').remove()
-      callback()
+      alert.animate({ opacity: 0 }, 600, 'linear', function(){
+        alert.remove()
+        callback()
+      })
     }, duration)
   }
 
