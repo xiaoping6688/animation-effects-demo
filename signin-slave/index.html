@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="signin.css">
+<style>
+ body {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/bg.jpg);
+ }
+</style>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="signin.js"></script>
+</head>
+
+<body>
+ <div class="s-area">
+    <h3>已签到：4人</h3>
+    <div class="s-limit">
+        <ul class="s-list"></ul>
+    </div>
+ </div>
+
+ <script>
+  var data = [
+    { name: 'User1', avatar:'./headicon.jpg' },
+    { name: 'User2', avatar:'' },
+    { name: 'User3', avatar:'./headicon.jpg' },
+    { name: 'User4', avatar:'' },
+    { name: 'User5', avatar:'./headicon.jpg' },
+    { name: 'User6', avatar:'' },
+    { name: 'User7', avatar:'./headicon.jpg' },
+    { name: 'User8', avatar:'' },
+    { name: 'User9', avatar:'' },
+    { name: 'User10', avatar:'./headicon.jpg' },
+    { name: 'User11', avatar:'./headicon.jpg' },
+    { name: 'User12', avatar:'./headicon.jpg' },
+    { name: 'User13', avatar:'./headicon.jpg' },
+    { name: 'User14', avatar:'./headicon.jpg' },
+    { name: 'User15', avatar:'./headicon.jpg' },
+    { name: 'User16', avatar:'./headicon.jpg' },
+    { name: 'User17', avatar:'' },
+    { name: 'User18', avatar:'' },
+    { name: 'User19', avatar:'' },
+    { name: 'User20', avatar:'' },
+    { name: 'User21', avatar:'' },
+    { name: 'User22', avatar:'' },
+    { name: 'User23', avatar:'' },
+    { name: 'User24', avatar:'' },
+    { name: 'User25', avatar:'' },
+    { name: 'User26', avatar:'' },
+    { name: 'User27', avatar:'' },
+    { name: 'User28', avatar:'./headicon.jpg' }
+  ]
+
+  runSignin('.s-list', data)
+ </script>
+</body>
+</html>

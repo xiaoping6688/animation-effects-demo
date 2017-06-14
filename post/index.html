@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="post.css">
+<style>
+ body {
+    width: 100%;
+    height: 100%;
+    zoom: 0.5;
+    background-image: url(img/bg.jpg);
+ }
+</style>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="post.js"></script>
+</head>
+
+<body>
+ <div class="post-area">
+    <ul class="p-list">
+        <li class="p-item">
+            <div class="avatar"><img src="./headicon.jpg"><span>刘德华1</span></div>
+            <div class="content">大家好！</div>
+        </li>
+        <li class="p-item item-scale">
+            <div class="avatar"><div class="no-img color-1">谢</div><span>谢霆锋2</span></div>
+            <div class="content">Sorry，你所拨打的电话不在服务区...</div>
+        </li>
+        <!-- <li class="p-item">
+            <div class="avatar"><img src="./headicon.jpg"><span>刘德华3</span></div>
+            <div class="content">大家好！</div>
+        </li>
+        <li class="p-item">
+            <div class="avatar"><div class="no-img color-1">谢</div><span>谢霆锋4</span></div>
+            <div class="content">Sorry，你所拨打的电话不在服务区...</div>
+        </li>
+        <li class="p-item">
+            <div class="avatar"><div class="no-img color-2">谢</div><span>谢霆锋5</span></div>
+            <div class="content">Sorry，你所拨打的电话不在服务区...</div>
+        </li> -->
+    </ul>
+ </div>
+
+ <script>
+  // return;
+
+  var data = [
+    { name: 'User1', content: '很好！！！', avatar:'./headicon.jpg' },
+    { name: 'User2', content: '不错啊', avatar:'' },
+    { name: 'User3', content: '很好！！！', avatar:'./headicon.jpg' },
+    { name: 'User4', content: '很厉害的样子。', avatar:'' },
+    { name: 'User5', content: 'NB', avatar:'./headicon.jpg' },
+    { name: 'User6', content: '很好！！！', avatar:'' },
+    { name: 'User7', content: '保持队列', avatar:'./headicon.jpg' },
+    { name: 'User8', content: '很好保持队列！！！', avatar:'' },
+    { name: 'User9', content: '保持队列', avatar:'' },
+    { name: 'User10', content: '保持队列', avatar:'./headicon.jpg' },
+    { name: 'User11', content: '保持队列', avatar:'./headicon.jpg' },
+    { name: 'User15', content: '保持队列', avatar:'./headicon.jpg' },
+    { name: 'User16', content: '保持队列', avatar:'./headicon.jpg' },
+    { name: 'User17', content: '保持队列', avatar:'' },
+    { name: 'User18', content: '保持队列', avatar:'' },
+    { name: 'User19', content: '保持队列', avatar:'' },
+    { name: 'User26', content: '保持队列', avatar:'' },
+    { name: 'User27', content: '立正！', avatar:'./headicon.jpg' }
+  ]
+
+  runPost('.p-list', data)
+ </script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: flex-start;
   position: relative;
-  zoom: 0.5;
+  zoom: 0.6;
 }
 .p-col {
   display: flex;
@@ -55,7 +55,7 @@
   height: 44px;
   line-height: 44px;
   color: #fff;
-  font-size: 25px;
+  font-size: 30px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;

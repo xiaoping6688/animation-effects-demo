@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="vote.css">
+<style>
+ body {
+    width: 100%;
+    height: 100%;
+    zoom: 0.5;
+    background-image: url(img/bg.jpg);
+ }
+</style>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="vote.js"></script>
+</head>
+
+<body>
+ <div class="v-vote">
+    <div class="v-limit">
+        <ul class="v-list"></ul>
+     </div>
+ </div>
+
+ <div class="v-area">
+    <div class="v-progress">
+        <div class="progress-bar">
+            <div class="bar">
+                <span></span>
+            </div>
+        </div>
+        <span class="progress-ratio">0%</span>
+    </div>
+ </div>
+
+ <script>
+  var data = [
+    { name: 'User1', avatar:'./headicon.jpg' },
+    { name: 'User2', avatar:'' },
+    { name: 'User3', avatar:'./headicon.jpg' },
+    { name: 'User4', avatar:'' },
+    { name: 'User5', avatar:'./headicon.jpg' },
+    { name: 'User6', avatar:'' },
+    { name: 'User7', avatar:'./headicon.jpg' },
+    { name: 'User1', avatar:'./headicon.jpg' },
+    { name: 'User2', avatar:'' },
+    { name: 'User3', avatar:'./headicon.jpg' },
+    { name: 'User4', avatar:'' },
+    { name: 'User5', avatar:'./headicon.jpg' },
+    { name: 'User6', avatar:'' },
+    { name: 'User7', avatar:'./headicon.jpg' }
+  ]
+
+  runVote('.v-progress', '.v-list', data)
+
+  var index = 0
+  var len = data.length
+  setInterval(function(){
+    var ratio = index / len * 100
+    setAnimProgress(ratio)
+    index++
+
+    data.push({ name: 'User7', avatar:'./headicon.jpg' })
+  }, 1000)
+ </script>
+</body>
+</html>
