@@ -55,16 +55,15 @@
     { name: 'User7', avatar:'./headicon.jpg' }
   ]
 
-  runVote('.v-progress', '.v-list', data)
+  runVote('.v-progress', '.v-list')
 
   var index = 0
   var len = data.length
   setInterval(function(){
+    doAnimVote(data[index])
     var ratio = index / len * 100
     setAnimProgress(ratio)
     index++
-
-    data.push({ name: 'User7', avatar:'./headicon.jpg' })
   }, 1000)
  </script>
 </body>

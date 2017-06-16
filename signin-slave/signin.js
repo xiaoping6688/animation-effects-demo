@@ -1,6 +1,5 @@
 ;(function(window){
   var interval = 2000
-  var currentIndex
   var queue
   var containerSelector
   var intervalHandle
@@ -10,7 +9,6 @@
     queue = data || []
 
     $(containerSelector).html('')
-    currentIndex = 0
     clearInterval(intervalHandle)
     intervalHandle = setInterval(checkQueue, interval)
   }
@@ -24,23 +22,17 @@
     var item  = queue.shift()
     if (item) {
       showAlert(item, 1000, function(){
-        var col = Math.floor(currentIndex / 9)
-        var index = currentIndex % 9
-
-        // 创建新列
-        if (index == 0) {
-          if (col > 1) {
-            $(containerSelector).animate({ marginTop: '-122px' }, 'fast', 'linear', function() {
-              $(containerSelector + ' li:lt(9)').remove()
-              $(containerSelector).css('margin-top', 0)
-            })
-          }
-        }
-
         // 添加元素
         $(containerSelector).append(getElementHtml(item))
 
-        currentIndex++
+        // 向上滚动
+        if ($(containerSelector).height() > 244) {
+          var cols = $(containerSelector).width() / 122 >> 0
+          $(containerSelector).animate({ marginTop: '-122px' }, 'fast', 'linear', function() {
+            $(containerSelector + ' li:lt(' + cols + ')').remove()
+            $(containerSelector).css('margin-top', 0)
+          })
+        }
       })
     }
   }

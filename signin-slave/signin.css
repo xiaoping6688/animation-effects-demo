@@ -1,5 +1,5 @@
 .s-area {
-  width: 1181px;
+  width: 100%;
   min-height: 324px;
   overflow: hidden;
   position: absolute;
@@ -17,6 +17,7 @@
 .s-list {
   list-style: none;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
 }

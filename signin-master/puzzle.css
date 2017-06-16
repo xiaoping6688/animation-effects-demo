@@ -35,17 +35,15 @@
 .p-item img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
-.puz-1-2-1 img, .puz-2-0-1 img, .puz-2-1-1 img, .puz-3-1-1 img {
-  width: 100%;
-  height: auto;
-}
-.puz-0-0-1 img, .puz-0-1-1 img, .puz-1-0-1 img, .puz-1-1-1 img, .puz-2-2-1 img, .puz-3-0-1 img {
-  width: auto;
-  height: 100%;
-}
-.puz-1-2-1 img, .puz-2-2-1 img {
+.puz-1-2-1 img {
   transform: rotate(90deg);
+  height: 224px;
+}
+.puz-2-2-1 img {
+  transform: rotate(90deg);
+  width: 264px;
 }
 .puz-0-1-1 img {
   transform: rotate(180deg);
@@ -86,121 +84,121 @@
 .puz-0-0-0 {
   width: 184px;
   height: 224px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-0-0.png);
 }
 .puz-0-0-1 {
   width: 184px;
   height: 224px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-0-0.png);
 }
 .puz-0-1-0 {
   width: 184px;
   height: 224px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-0-1.png);
 }
 .puz-0-1-1 {
   width: 184px;
   height: 224px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-0-1.png);
 }
 .puz-1-0-0 {
   width: 184px;
   height: 224px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-1-0.png);
 }
 .puz-1-0-1 {
   width: 184px;
   height: 224px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-1-0.png);
 }
 .puz-1-1-0 {
   width: 184px;
   height: 224px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-1-1.png);
 }
 .puz-1-1-1 {
   width: 184px;
   height: 224px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-1-1.png);
 }
 .puz-1-2-0 {
   width: 224px;
   height: 184px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-1-2.png);
 }
 .puz-1-2-1 {
   width: 224px;
   height: 184px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-1-2.png);
 }
 .puz-2-0-0 {
   width: 264px;
   height: 184px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-2-0.png);
 }
 .puz-2-0-1 {
   width: 264px;
   height: 184px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-2-0.png);
 }
 .puz-2-1-0 {
   width: 264px;
   height: 184px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-2-1.png);
 }
 .puz-2-1-1 {
   width: 264px;
   height: 184px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-2-1.png);
 }
 .puz-2-2-0 {
   width: 184px;
   height: 264px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-2-2.png);
 }
 .puz-2-2-1 {
   width: 184px;
   height: 264px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-2-2.png);
 }
 .puz-3-0-0 {
   width: 184px;
   height: 264px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-3-0.png);
 }
 .puz-3-0-1 {
   width: 184px;
   height: 264px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-3-0.png);
 }
 .puz-3-1-0 {
   width: 264px;
   height: 184px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url(img/p-3-1.png);
 }
 .puz-3-1-1 {
   width: 264px;
   height: 184px;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url(img/p-3-1.png);
 }
 

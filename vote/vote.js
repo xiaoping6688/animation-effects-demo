@@ -5,16 +5,16 @@
   var containerSelector
   var listSelector
   var intervalHandle
-  var flag
-  var lastRatio = 0
+  var lastRatio
 
-  window.runVote = function (container, list, data) {
+  window.runVote = function (container, list) {
     containerSelector = container
     listSelector = list
-    queue = data || []
 
     $(listSelector).html('')
     currentIndex = 0
+    queue = []
+    lastRatio = 0
     clearInterval(intervalHandle)
     intervalHandle = setInterval(checkQueue, interval)
   }
@@ -38,13 +38,16 @@
     lastRatio = percent
   }
 
+  window.doAnimVote = function (item) {
+    if (item) {
+      queue.push(item)
+      showAvatar(item, 1000)
+    }
+  }
+
   function checkQueue () {
     var item  = queue.shift()
     if (item) {
-      flag = Math.random() * 4 + 1 >> 0
-
-      showAvatar(item, 1000)
-
       var col = Math.floor(currentIndex / 2)
       var index = currentIndex % 2
 
@@ -60,7 +63,7 @@
 
       currentIndex++
 
-      checkQueue()
+      checkQueue() // XXX
     }
   }
 
@@ -68,6 +71,7 @@
     if (data.avatar) {
       return '<li class="v-item"><div class="avatar"><img src="' + data.avatar + '"></div><span class="name">' + data.name + '</span><span>已投</span></li>'
     } else {
+      var flag = Math.random() * 4 + 1 >> 0
       return '<li class="v-item"><div class="avatar color-' + flag + '">' + data.name.substr(0, 1) + '</div><span class="name">' + data.name + '</span><span>已投</span></li>'
     }
   }
@@ -75,6 +79,7 @@
     if (data.avatar) {
       return '<div class="v-avatar"><img src="' + data.avatar + '"></div>'
     } else {
+      var flag = Math.random() * 4 + 1 >> 0
       return '<div class="v-avatar color-' + flag + '"><span>' + data.name + '</span></div>'
     }
   }
